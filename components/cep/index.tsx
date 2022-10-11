@@ -62,14 +62,14 @@ export default function SignUp() {
     const unmask = cep.replace(/[^a-z\d\s]+/gi, "");
 
     if (unmask.length === 8) {
-      const result = await getCep(unmask);
+       const result = await getCep(unmask);
 
-      setValue("city", result.localidade)
-      setValue("street", result.logradouro)
-      setValue("cep", result.cep)
-      setValue("neighborhood", result.bairro)
-      setValue("state", result.uf)
-      setValue("number", "")
+       setValue("city", result.localidade)
+       setValue("street", result.logradouro)
+       setValue("cep", result.cep)
+       setValue("neighborhood", result.bairro)
+       setValue("state", result.uf)
+       setValue("number", "")
     }
   };
 
@@ -103,7 +103,8 @@ export default function SignUp() {
                   placeholder="Cep"
                   mask="99999-999"
                   {...register("cep")}
-                  onMouseLeave={handleCep}
+                  onBlur={handleCep}
+                  data-testid="cep"
                 >
                   {(inputProps: any) => (
                     <TextField
@@ -113,6 +114,7 @@ export default function SignUp() {
                       name="cep"
                       id="cep"
                       InputLabelProps={{ shrink: true }}
+                      
                     />
                   )}
                 </InputMask>

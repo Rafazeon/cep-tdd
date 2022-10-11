@@ -1,11 +1,10 @@
 module.exports = {
-  preset: 'ts-jest',
   roots: ["<rootDir>"],
   collectCoverageFrom: ["<rootDir>/**/*.{ts,tsx}"],
   coverageDirectory: "coverage",
   testEnvironment: "jsdom",
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(ts|tsx)$': 'babel-jest',
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
